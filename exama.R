@@ -93,7 +93,7 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #       the mitochondrial chromosome out of the total of 1268 human-specific genes found. Knowing that 
 #       the total of studied genes in mitochondria was 37 out of a the total of 16000 genes from all 
 #       chromosomes:
-#   2i. How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 genes
+#   3a. How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 genes
 #       from those 16000 genes. Does the result give you reasons to suspect that the mitochondrial genes 
 #       in the studied cell tissues and types must have had a specially important role for human 
 #       specificity?
