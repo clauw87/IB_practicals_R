@@ -3,9 +3,10 @@
 
 #       The data set for your exam is located in a Github repository. It is part of the 
 #       results of a transcriptomic study that addressed how genes in the brain express 
-#       differently in human, macaques, bonobos and humans. The data set contains the selection 
-#       of genes that were considered specific to humans according to their patterns of 
-#       differential gene expression in different brain regions and cell types.
+#       differently in human compared to chimpanzee, bonobo, and macaque. The data set 
+#       contains the selection of genes that were considered specific to humans according 
+#       to their patterns of differential gene expression in different brain regions and 
+#       cell types.
 #       The file is named human_specific.csv.
 
 #   0.  Run the following code to download your data set to your current working directory.
