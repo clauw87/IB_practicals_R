@@ -7,7 +7,7 @@
 #       The data set contains the selection of genes that were considered specific to humans
 #       according to their patterns of differential gene expression in different brain regions and 
 #       cell types.
-#       The file name is named human_specific.csv.
+#       The file is named human_specific.csv.
 
 #   0.  Run the following code to download your data set to your current working directory.
 
@@ -50,38 +50,42 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #       a gene change “human-specific”
 
 
-#   2b. Explore the distribution of the variables avg_logFC and p_val_adj in the dataset graphically with 
+#   2b. Explore the distribution of the variables avg_logFC and p_val_adj in the data set graphically with 
 #       histograms and numerically with the five-number summary. 
 #   2b1. Can you figure out/ approximate what are those thresholds mentioned in 2a.?
-#   2b2. Do human-specific changes in gene expression tend to be more gene over-expression (avg logFC > 1),
-#       gene under-expression (avg logFC < 1), or are similarly distributed around both directions?
+#   2b2. Do human-specific changes in gene expression comprise more gene over-expression (avg_logFC > 1),
+#       gene under-expression (avg_logFC < 1), or are similarly distributed on both directions?
   
 
-#   2c. Some genes might have resulted significantly human-specific in one or in more than one tissues and
-#   or cell types. How many total (different) human-specific genes did the study find in total?
+#   2c. What is the most over-expressed gene in the data set (the one with the highest positive avg_logFC)? 
+#       Print its HUGO symbol (hgnc_symbol).
 
 
+#   2d. Some genes might have resulted significantly human-specific in one or in more than one tissues and
+#       or cell types. How many total (different) human-specific genes (variable gene) did the study find 
+#       in total?
 
 
 #---------------------------------------------------------------------------------------------------------
 # EXERCISE 2B
 
-#       The caudate nucleus astrocytes might have played a role in adding flexibility in functions that 
-#       determined our differentiation from other primates: for things like the planning, learning and 
-#       memory, motivation, emotion and romantic interaction. In the dataset Caudate nucleus is coded 
-#       as "CN" while astrocytes is coded as "Ast". 
+#       The astrocytes in the Caudate Nucleus may have played a role in adding flexibility in functions 
+#       that determined our differentiation from other primates: for things like the planning, learning 
+#       and memory, motivation, emotion and romantic interaction. In the data set Caudate Nucleus is 
+#       coded as "CN" while astrocytes is coded as "Ast". 
 
-#   2f. Create a new data frame called cnast to store only the subset of data corresponding to the 
-#       Caudate nucleus astrocytes by subsetting the original dataset on those two conditions on the 
+#   2e. Create a new data frame called cnast to store only the subset of data corresponding to the 
+#       Caudate nucleus astrocytes by subsetting the data frame base on those two conditions on the 
 #       columns tissue and cell_type, respectively. 
 
-#   2g. How human-specific genes were found in this specific combination of brain tissue and cell type?
+#   2f. How many human-specific genes were found in this specific combination of brain tissue and cell type?
 
-#   2h. How many human-specific genes are over-expressed (avg logFC > 1), and how many are under-expressed 
-#       (avg logFC < 1) in the Caudate nucleus astrocytes?
+#   2g. How many human-specific genes are over-expressed (avg logFC > 1), and how many are under-expressed 
+#       (avg logFC < 1) in the Caudate Nucleus astrocytes?
 
-#   2i. Create a new column in cnast data frame called direction that takes value “up” if the gene is
+#   2h. Create a new column in cnast data frame called direction that takes value “up” if the gene is
 #       over-expressed and takes value “down” if the gene is under-expressed
+
 
 
 
@@ -89,11 +93,11 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #---------------------------------------------------------------------------------------------------------
 # EXERCISE 3
 
-#       The results in the data set show that in this study there were found a total of 8 genes from 
-#       the mitochondrial chromosome out of the total of 1268 human-specific genes found. Knowing that 
-#       the total of studied genes in mitochondria was 37 out of a the total of 16000 genes from all 
-#       chromosomes:
-#   2i. How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 genes
+#       The results in the data set show that in this study there were found 8 human-specific genes from 
+#       the mitochondrial chromosome out of the total of 1268 human-specific genes found in total. 
+#       Knowing that the total of studied genes in mitochondria was 37 out of a the total of 16000 genes 
+#       from all chromosomes:
+#   3a. How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 genes
 #       from those 16000 genes. Does the result give you reasons to suspect that the mitochondrial genes 
 #       in the studied cell tissues and types must have had a specially important role for human 
 #       specificity?
@@ -101,15 +105,14 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 
 
 
-
-
 #---------------------------------------------------------------------------------------------------------
 # KNITTING YOUR EXAM
+
 #       Run the following code by copying and pasting it in the console. Do not uncomment it!!!!
 #       It will generate an HTML with all your code and its execution. 
 
 
-# install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./examb.R", precious=TRUE)
+#   install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./examb.R", precious=TRUE)
 
 
 
