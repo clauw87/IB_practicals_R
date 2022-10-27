@@ -1,0 +1,266 @@
+% !TEX TS-program = knitr
+\documentclass{article}
+% Knitr setup              
+\usepackage[english]{babel}
+
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\LARGE#1\end{center}
+    \vskip0.5em}%
+}
+\usepackage{colortbl}
+\usepackage{fixltx2e}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{textgreek}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{textpos}
+\usepackage{calc}
+
+
+\usepackage{parskip}% no indent
+\usepackage[section]{placeins}% keep stuff in place
+
+\usepackage[export]{adjustbox} % figures place
+
+\usepackage{hyperref}
+
+
+% SETTINGS
+
+%Colors
+\definecolor{graphite}{HTML}{454254}
+\definecolor{earthblue}{HTML}{0000A5}
+\definecolor{brightblue}{HTML}{0909FF}
+\definecolor{vino}{HTML}{581845}
+\definecolor{greenishblue}{HTML}{307D7E}
+\definecolor{mint}{HTML}{BFE5D9}
+
+%hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkbordercolor = {white},
+    linkcolor={graphite},%{black!50!white},
+    filecolor=magenta,      
+    urlcolor=greenishblue, %brightblue, %cyan,
+    pdfpagemode=FullScreen,
+    }
+
+
+
+
+% text box
+\usepackage{blindtext}
+\usepackage{tcolorbox}
+
+
+\setlength{\topmargin}{0in}
+
+
+
+%header
+\usepackage{fancyhdr}
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{REST API Reference (v12.011918)}
+%\rhead{\thepage}
+%\cfoot{Company, Inc.}
+
+%header first pge
+\fancypagestyle{firststyle}
+{
+    \fancyhead[L]{\color{graphite}Introduction to Bioinformatics}    
+    \fancyhead[R]{\color{graphite}Bachelor's Degree in Bioinformatics - ESCI-UPF}
+    %\fancyhead[R]{ \includegraphics[width=4cm]{logo.png}}
+    \renewcommand{\headrulewidth}{2pt}% 2pt header rule
+    \renewcommand{\headrule}{\hbox to\headwidth{%
+    \color{graphite}\leaders\hrule height \headrulewidth\hfill}}
+}
+
+% header other pages - header is section- subsection
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\nouppercase\leftmark} 
+\fancyhead[R]{\nouppercase\rightmark}
+
+
+
+
+
+
+
+
+
+
+
+
+% TITLE
+\title{\textbf{Mid-term exam 1}}
+%\author{Claudia Vasallo Vega}
+\date {}
+
+
+
+
+
+
+
+
+\begin{document}
+    \maketitle
+    
+    
+% \tableofcontents
+ 
+\thispagestyle{firststyle}
+
+
+
+
+The data set for your exam is located in a Github repository. It is part if the results of a transcriptomic study that addressed how genes in the brain express differently in macaques, bonobos and humans. The data set contains the selection of genes that were considered human-specific according to their differential patterns of gene expression in different brain regions and cell types. The file is named \texttt{human\_specific.csv.} \  \ 
+
+
+
+Run the following code to download your data set to your current working directory:
+
+
+
+<<include = TRUE, eval=TRUE>>=
+download.file("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/human_specific.csv", 
+destfile = "human_specific.csv")
+@
+
+
+
+\section*{Exercise 1}
+
+  
+ \begin{itemize}
+
+\item[1a.]	Import the data set into an R data frame stored in a variable called \texttt{data}. (you can previously use the function \textit{readLines()} with argument n=2, to figure out the separator and whether there is a header or not, and the function \textit{head()} afterwards to verify that you have imported your data set properly)
+
+ 
+\item[1b.]	Explore your data frame to see how many columns, and how many rows does it contain and what types of variables are stored in the columns?
+
+
+\item[1c.]	What different tissues (\texttt{tissue}) and what different cell types (\texttt{cell\_type}) are represented in the dataset?
+
+
+ \end{itemize}
+ 
+ 
+ 
+ \section*{Exercise 2A}
+ The variable avg\_logFC (log2 fold change) is a symmetrically transformed variable that quantifies the estimated level of human specific fold change expression of a gene: this is, how much more ($+$ values) or less ($-$ values) is the gene expressed in humans compared to the average of the two non-human primates. The genes in this dataset are those considered to have human specificity and account in part for what makes us humans. 
+ 
+ \begin{itemize}
+
+ \item[2a.]	Try the following plot. It is called a vulcano plot and shows how the genes in a transcriptomic study distribute according to the magnitude and the direction of their expression change (\texttt{avg\_logFC}) and the significance of the test to consider them as significantly changed (\texttt{p\_val\_adj}). \\
+ You will see that there is a gap in the middle of the vulcano; that corroborates that the dataset includes only the significant results, for which the researchers have put certain thresholds on \texttt{avg\_logFC} and \texttt{p\_val\_adj} for what they regard as a reliable change in gene expression to consider a gene change ``human-specific".
+   
+   
+  \end{itemize}
+  
+<<include = FALSE, eval=TRUE>>=
+data <- read.table("./human.csv", sep = "\t", header = TRUE)
+ @
+ 
+ <<setup, include=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.align="center", fig.height=3.5, fig.width=3.5)
+opts_knit$set(out.format = "latex")
+@
+
+ <<include = TRUE, eval=FALSE>>=
+plot(data$avg_logFC, -log10(data$p_val_adj))
+@
+
+
+ \begin{itemize}
+
+
+\item[2b.] Explore the distribution of the values of the variables \texttt{avg\_logFC} and \texttt{p\_val\_adj} in the data set graphically with with histograms and numerically with the five-number summary. 
+
+%\item[2c.] What are the minimum and the maximum values of \texttt{avg\_logFC?} What are the minimum and maximum values of \texttt{p\_val\_adj}?
+ \begin{itemize}
+ 
+ \item[2b-1.] Can you figure out/ approximate what are the thresholds mentioned in 2a.?
+ 
+%\item[2b-2.] Do human-specific changes in gene expression comprise more over-expressed genes (\texttt{avg\_logFC} $>$ 1), under-expressed genes (\texttt{avg\_logFC} $<$ 1), or the genes are similarly distributed around both directions?
+ 
+ \item[2b-2.] Do human-specific changes in gene expression comprise more gene over-expression (\texttt{avg\_logFC} $>$ 1), gene under-expression (\texttt{avg\_logFC} $<$ 1), or are similarly distributed on both directions?
+ 
+\end{itemize}
+
+
+\item[2c.] What is the most over-expressed gene in the data set (the one with the highest positive \texttt{avg\_logFC)}? Print its HUGO symbol (hgnc\_symbol).
+
+\item[2d.]  Some genes might have resulted significantly human-specific in just one or in more than one tissue and/ or cell types. How many total (different) human-specific genes (\texttt{gene}) did the study find in total?
+ 
+\end{itemize}
+ 
+ 
+ 
+ \section*{Exercise 2B}
+ 
+
+
+The astrocytes in the Caudate Nucleus may have played a role in adding flexibility in functions that determined our differentiation from other primates: for things like the planning, learning and memory, motivation, emotion and romantic interaction. In the data set Caudate Nucleus (\texttt{tissue}) is coded as ``CN" while astrocytes (\texttt{cell\_type}) is coded as``Ast". \
+
+\begin{itemize}
+
+\item[2e.] Create a new data frame called \texttt{cnast} to store only the subset of data corresponding to the Caudate nucleus astrocytes by subsetting the data frame based on those two conditions on the columns \texttt{tissue} and \texttt{cell\_type}, respectively.
+ 
+ \item[2f.] How many human-specific genes were found in this specific combination of brain tissue and cell type? 
+
+\item[2g] How many human-specific genes are over-expressed (avg\_logFC $>$ 1), and how many are under-expressed (avg\_logFC $<$ 1) in the Caudate nucleus astrocytes? 
+
+\item[2h] Create a new column in \texttt{cnast} data frame called \texttt{direction} that takes value ``up" if the gene is over-expressed and takes value ``down" if the gene is under-expressed.
+
+
+
+\end{itemize}
+
+
+
+\section*{Exercise 3}
+The results in the data set show that in this study there were found 8 human-specific genes from the mitochondrial chromosome out of the total of 1268 human-specific genes found. \
+
+Knowing that the total of genes in mitochondria that they could study was 37 and the total of genes from all chromosomes was 16000:
+
+ \begin{itemize}
+ 
+\item[3a.] How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 genes from such those 16000 genes. Does the result give you reasons to suspect that the mitochondrial genes in the studied cell tissues and types must have had a specially important role for human specificity?
+
+
+\end{itemize}
+ 
+
+
+\section*{Knitting your exam}
+Run the following code by copying and pasting it in the console. (Do not uncomment it!!!!) It will generate an HTML with all your code and its execution. 
+
+
+ <<include = TRUE, eval=FALSE>>=
+ install.packages("markdown")
+ install.packages("knitr")
+ library(markdown)
+ library(knitr)
+ spin("./exama.R", precious=TRUE)
+@
+
+
+
+
+\end{document}
+
