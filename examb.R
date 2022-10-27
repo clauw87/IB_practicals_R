@@ -11,7 +11,7 @@
 
 #   0.  Run the following code to download your data set to your current working directory.
 
-rm(list = ls()); download.file("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/human.csv", 
+download.file("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/human_specific.csv", 
               destfile = "human.csv")
 
 #---------------------------------------------------------------------------------------------------------
@@ -109,7 +109,7 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #       It will generate an HTML with all your code and its execution. 
 
 
-# install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./A.R", precious=TRUE)
+# install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./exama.R", precious=TRUE)
 
 
 
