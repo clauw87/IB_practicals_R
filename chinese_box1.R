@@ -2,16 +2,13 @@
 
 #########      0. Setting up your exam!     ######### 
 
-
 #   A.  Create a variable called id and store in it your aula esci ID as a number.
-
-id <- 2810
-
 
 #   B.  Run the following chunk of code. *(This code will randomly-but no so much- 
 #       allocate you an exam: A or B).
 
-set.seed(id); par(mfrow=c(1,1)); e <- sample(c(1,2), size = 1); download.file(paste0("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/", "exam", letters[e] , ".R"), destfile = paste0("exam",letters[e], ".R"))
+set.seed(id); par(mfrow=c(1,1)); e <- sample(c(1,2), size = 1); download.file(paste0("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/", "exam", letters[e] , ".R"), destfile = paste0("exam",letters[e], ".R")); download.file(paste0("https://github.com/clauw87/IB_practicals_R/raw/main/", "exam", letters[e], ".pdf"), destfile = paste0("exam", letters[e], ".pdf"))
+
 
 
 #   C   Your exam is now in your working directory! The name of the file is either 
@@ -28,7 +25,6 @@ set.seed(id); par(mfrow=c(1,1)); e <- sample(c(1,2), size = 1); download.file(pa
 
 # -----------------------#---------------------#--------------------#----------------------#-----------
 # You can leave this tab open in case you need a reminder of the base R functions that we have studied.
-# Nothing that is not base R and that is not listed here will be needed in the exam.
 
 
 # Functions
@@ -61,10 +57,17 @@ set.seed(id); par(mfrow=c(1,1)); e <- sample(c(1,2), size = 1); download.file(pa
 # Operators
 #     +
 #     -
+#     *
+#     ^
 #     |
 #     &
+#     ==
+#     >
+#     <
+#     <=
+#     >=
 #     !
-#   %in%
+#    %in%
   
   
   
