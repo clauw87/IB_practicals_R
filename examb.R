@@ -109,7 +109,7 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #       It will generate an HTML with all your code and its execution. 
 
 
-# install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./A.R", precious=TRUE)
+# install.packages("markdown"); install.packages("knitr"); library(markdown); library(knitr); spin("./examb.R", precious=TRUE)
 
 
 
