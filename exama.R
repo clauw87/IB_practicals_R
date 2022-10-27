@@ -3,9 +3,10 @@
 
 #       The data set for your exam is located in a Github repository. It is part of the 
 #       results of a transcriptomic study that addressed how genes in the brain express 
-#       differently in macaques, bonobos and humans. The data set contains the selection 
-#       of genes that were considered specific to humans according to their patterns of 
-#       differential gene expression in different brain regions and cell types.
+#       differently in human compared to chimpanzee, bonobo, and macaque. The data set 
+#       contains the selection of genes that were considered specific to humans according 
+#       to their patterns of differential gene expression in different brain regions and 
+#       cell types.
 #       The file is named human_specific.csv.
 
 #   0.  Run the following code to download your data set to your current working directory.
@@ -34,12 +35,12 @@ download.file("https://raw.githubusercontent.com/clauw87/IB_practicals_R/main/hu
 #---------------------------------------------------------------------------------------------------------
 # EXERCISE 2A
 
-#       The variable avg_logFC (log2 fold change) is a symmetrically transformed 
+#       The variable avg_logFC (log fold change) is a symmetrically transformed 
 #       variable that quantifies the estimated level of human specific fold change 
 #       expression of a gene: this is, how much more (+ values) or less (- values) 
-#       is the gene expressed in humans compared to the average of the two non-human 
-#       primates. The genes in this data set are those considered to have human 
-#       specificity and account in part for what makes us humans. 
+#       is the gene expressed in humans compared to the differences among the 
+#       non-human primates. The genes in this data set are those considered to have 
+#       human specificity and account in part for what makes us humans.  
 
 
 #   2a. Try the following plot. It is called a vulcano plot and shows how the genes 
