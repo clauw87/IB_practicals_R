@@ -102,9 +102,9 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 #---------------------------------------------------------------------------------------------------------
 # EXERCISE 3
 
-#       The results in the data set show that in this study there were found 8 human-specific 
-#       genes from the mitochondrial chromosome out of the total of 1268 human-specific genes 
-#       found in total. 
+#       The results in the data set show that in this study there were 8 human-specific 
+#       genes from the mitochondrial chromosome (MT) out of the total of 1268 human-specific 
+#       genes found in total. 
 #       Knowing that the total of studied genes in mitochondria was 37 out of a the total of 
 #       16000 genes from all the chromosomes:
 #   3a. How likely would it be to get 8 or more mitochondrial genes in a random sample of 1268 
