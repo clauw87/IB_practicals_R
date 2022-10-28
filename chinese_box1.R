@@ -4,6 +4,9 @@
 
 #   A.  Create a variable called id and store in it your aula esci ID as a number.
 
+
+
+
 #   B.  Run the following chunk of code. *(This code will randomly-but no so much- 
 #       allocate you an exam: A or B).
 
