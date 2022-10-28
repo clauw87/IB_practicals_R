@@ -57,7 +57,7 @@ plot(data$avg_logFC, -log10(data$p_val_adj))
 
 #   2b. Explore the distribution of the variables avg_logFC and p_val_adj in the data 
 #       set graphically with histograms and numerically with the five-number summary. 
-#   2b1. Can you figure out/ approximate what are those thresholds mentioned in 2a.?
+#   2b1. Can you calculate*/ approximate what are those thresholds mentioned in 2a.?
 #   2b2. Do human-specific changes in gene expression comprise more gene over-expression 
 #        (avg_logFC > 0), gene under-expression (avg_logFC < 0), or are similarly 
 #        distributed on both directions?
